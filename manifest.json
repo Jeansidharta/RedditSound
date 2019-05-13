@@ -1,0 +1,25 @@
+{
+	"manifest_version": 2,
+	"name": "Reddit upvote sound",
+	"version": "1.0.0",
+	"description": "Plays a sound when upvoting or downvoting on Reddit",
+	"browser_action": {
+		"default_icon": {
+		},
+		"default_title": "Upvote",
+		"default_popup": "popup/popup.html"
+	},
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches": ["*://*.reddit.com/*"],
+			"js": ["injection.js"]
+		}
+	],
+	"author": "Jean Sidharta",
+	"homepage_url": "https://github.com/Jeansidharta/RedditSound",
+	"permissions": ["tabs", "activeTab", "storage"]
+}
