@@ -4,10 +4,10 @@ let upvoteMedia = document.createElement("audio");
 let upvoteMediaRev = document.createElement("audio");
 let downvoteMedia = document.createElement("audio");
 let downvoteMediaRev = document.createElement("audio");
-upvoteMedia.src="./upvote-modified.mp3";
-upvoteMediaRev.src="./upvote-reversed.mp3";
-downvoteMedia.src="./downvote-modified.mp3";
-downvoteMediaRev.src="./downvote-reversed.mp3";
+upvoteMedia.src="./sounds/upvote-modified.mp3";
+upvoteMediaRev.src="./sounds/upvote-reversed.mp3";
+downvoteMedia.src="./sounds/downvote-modified.mp3";
+downvoteMediaRev.src="./sounds/downvote-reversed.mp3";
 
 let volume = defaultVolume;
 
@@ -20,7 +20,7 @@ function playSound(sound){
 function getVolume(){
 	return new Promise((resolve, reject)=>{
 		chrome.storage.local.get("volume", (value)=>{
-			if(value.volume === undefined) reject("volume was not defined");
+			if(value.volume == undefined) reject("volume was not defined");
 			else resolve(value.volume);
 		});
 	});
@@ -32,10 +32,11 @@ function setVolume(value){
 }
 
 (async ()=>{
-	volume = await getVolume();
-	if(!volume || volume.constructor !== Number){
+	try{
+		volume = await getVolume();
+	} catch(e) {
 		volume = defaultVolume;
-		setVolume(defaultVolume);
+		setVolume(volume);
 	}
 })();
 

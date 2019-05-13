@@ -2,9 +2,21 @@
 	"manifest_version": 2,
 	"name": "Reddit upvote sound",
 	"version": "1.0.0",
-	"description": "Plays a sound when upvoting or downvoting on Reddit",
+	"description": "Plays a sound when upvoting or downvoting on Reddit. Idea from u/42words",
+	"icons" : {
+		"16" : "./images/image16.png",
+		"24" : "./images/image24.png",
+		"32" : "./images/image32.png",
+		"48" : "./images/image48.png",
+		"128" : "./images/image128.png"
+	},
 	"browser_action": {
 		"default_icon": {
+			"16" : "./images/image16.png",
+			"24" : "./images/image24.png",
+			"32" : "./images/image32.png",
+			"48" : "./images/image48.png",
+			"128" : "./images/image128.png"
 		},
 		"default_title": "Upvote",
 		"default_popup": "popup/popup.html"
